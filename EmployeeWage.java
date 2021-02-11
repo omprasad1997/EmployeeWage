@@ -4,7 +4,7 @@ public class EmployeeWage {
 	public static  final int  isPartTime = 1;
 	public static  final int isFullTime = 2;
 	public static  final int EMP_RATE_PER_HOUR=20;
-	public static  final int No_Of_Working_Days=2;
+	public static  final int No_Of_Working_Days=20;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -30,8 +30,8 @@ public class EmployeeWage {
 			}
 			empWage=  empHrs*EMP_RATE_PER_HOUR;
 			totalEmpWage += empWage;
-			System.out.println("Emp Wage :"+ totalEmpWage);
 
 	}
+		System.out.println("Emp Wage :"+ totalEmpWage);
 	}
 }
