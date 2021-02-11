@@ -5,15 +5,17 @@ public class EmployeeWage {
 	public static  final int isFullTime = 2;
 	public static  final int EMP_RATE_PER_HOUR=20;
 	public static  final int No_Of_Working_Days=20;
+	public static  final int max_Hrs_In_Month = 100;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int empHrs = 0;
-		int empWage=0;
-		int totalEmpWage =0;
+
+		int totalHrs=0,totalWorkingDays=0,totalEmpWage =0;
 		
-		for(int day = 1 ; day<=No_Of_Working_Days;day++ )
+		while(totalHrs<=max_Hrs_In_Month && totalWorkingDays <= No_Of_Working_Days)
 		{
+			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random()*10)%3;
 			
 			switch(empCheck)
@@ -28,10 +30,11 @@ public class EmployeeWage {
 					empHrs=0;
 					break;
 			}
-			empWage=  empHrs*EMP_RATE_PER_HOUR;
+			totalHrs += empHrs;
+			int empWage=  empHrs*EMP_RATE_PER_HOUR;
 			totalEmpWage += empWage;
-
+			System.out.println("Emp Wage :"+ empWage);
 	}
-		System.out.println("Emp Wage :"+ totalEmpWage);
+		System.out.println("Total Emp Wage :"+ totalEmpWage);
 	}
 }
