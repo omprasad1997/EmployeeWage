@@ -1,19 +1,13 @@
 package com.blbz;
 
 public class EmployeeWage {
-	public static  final int  isPartTime = 1;
-	public static  final int isFullTime = 2;
-	public static  final int EMP_RATE_PER_HOUR=20;
-	public static  final int No_Of_Working_Days=20;
-	public static  final int max_Hrs_In_Month = 100;
+		public static final int isPartTime = 1;
+		public static final int isFullTime = 2;
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int empHrs = 0;
-
-		int totalHrs=0,totalWorkingDays=0,totalEmpWage =0;
-		
-		while(totalHrs<=max_Hrs_In_Month && totalWorkingDays <= No_Of_Working_Days)
+	public static int computeEmpWage(String company,int empRate,int numOfDays,int maxHrs)
+	{
+		int empHrs=0,totalEmpHrs=0,totalWorkingDays=0;
+		while(totalEmpHrs<=maxHrs && totalWorkingDays < numOfDays)
 		{
 			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random()*10)%3;
@@ -30,11 +24,17 @@ public class EmployeeWage {
 					empHrs=0;
 					break;
 			}
-			totalHrs += empHrs;
-			int empWage=  empHrs*EMP_RATE_PER_HOUR;
-			totalEmpWage += empWage;
-			System.out.println("Emp Wage :"+ empWage);
+			totalEmpHrs += empHrs;
+			System.out.println("Days#: " + totalWorkingDays + " Emp Hr: " + empHrs);
+			
+	    }
+		int totalEmpWage = empHrs*empRate;
+		System.out.println("Total Emp Wage : "+ totalEmpWage);
+		return totalEmpWage;
 	}
-		System.out.println("Total Emp Wage :"+ totalEmpWage);
+	
+	public static void main(String[] args) {
+		computeEmpWage("Jio",10,20,100);
 	}
 }
+
